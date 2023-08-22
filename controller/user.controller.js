@@ -34,8 +34,20 @@ const addUser = (req, res) => {
   });
 };
 
+const userWithEmail = (req, res) => {
+  const { email } = req.body;
+
+  const user = Users.find((ele) => ele.email === email);
+  res.send({
+    model: user,
+    message: "Successfully fetched",
+    statusCode: 200,
+  });
+};
+
 module.exports = {
   getUsers,
   getUser,
-  addUser
+  addUser,
+  userWithEmail,
 };
