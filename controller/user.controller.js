@@ -64,10 +64,30 @@ const userWithEmail = (req, res) => {
   });
 };
 
+const deleteUser = (req, res) => {
+  const { id } = req.params;
+  const index = Users.findIndex((ele) => ele.id == id)
+  if (index == -1) {
+    res.send({
+      model: null,
+      message: "No id found with given ID",
+      statusCode: 200,
+    });
+    return;
+  }
+  const user = Users.splice(1, index);
+  res.send({
+    model: user,
+    message: "user deleted successfull",
+    statusCode: 200
+  })
+}
+
 module.exports = {
   getUsers,
   getUser,
   addUser,
   userWithEmail,
-  updateUser
+  updateUser,
+  deleteUser
 };
