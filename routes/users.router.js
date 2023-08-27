@@ -15,4 +15,5 @@ router.post("/user", addUser);
 router.patch("/user/:id", updateUser);
 router.post("/user/email", userWithEmail);
 router.delete("/user/:id", deleteUser);
+router.delete("/user/email/:id", deleteWithEmail);
 module.exports = router;
