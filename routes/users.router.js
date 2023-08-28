@@ -6,6 +6,7 @@ const {
   userWithEmail,
   updateUser,
   deleteUser,
+  deleteWithEmail,
 } = require("../controller/user.controller");
 var router = express.Router();
 
@@ -16,4 +17,5 @@ router.patch("/user/:id", updateUser);
 router.post("/user/email", userWithEmail);
 router.delete("/user/:id", deleteUser);
 router.delete("/user/email/:id", deleteWithEmail);
+
 module.exports = router;
